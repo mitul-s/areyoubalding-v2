@@ -7,9 +7,19 @@ export default function Result() {
   const { answers, results } = useQuizStore() as QuizState;
 
   const calculateResult = (totalScore: number) => {
-    if (totalScore >= 7) {
+    const totalPossibleScore = questions.reduce((total, question) => {
+      const maxOptionScore = Math.max(
+        ...question.options.map((option) => option.score)
+      );
+      return total + maxOptionScore;
+    }, 0);
+
+    const baldingThreshold = (totalPossibleScore * 1) / 3;
+    const baldThreshold = (totalPossibleScore * 2) / 3;
+
+    if (totalScore >= baldThreshold) {
       return results.bald;
-    } else if (totalScore >= 4) {
+    } else if (totalScore >= baldingThreshold) {
       return results.balding;
     } else {
       return results.notBalding;
@@ -48,7 +58,7 @@ export default function Result() {
 
     setTimeout(() => {
       const totalScore = calculateTotalScore();
-      const finalResult = calculateResult(10);
+      const finalResult = calculateResult(totalScore);
       setResult(finalResult);
       setLoading(false);
     }, 2000);
