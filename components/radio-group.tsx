@@ -2,7 +2,6 @@ import React from "react";
 import * as RadioGroup from "@radix-ui/react-radio-group";
 import {
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -31,11 +30,17 @@ const RadioItem = ({
   );
 };
 
-const Radio = ({ children, ...props }) => {
-  return <RadioGroup.Root {...props}>{children}</RadioGroup.Root>;
-};
-
-export const FormRadio = ({ form, name, label, options }) => {
+export const FormRadio = ({
+  form,
+  name,
+  label,
+  options,
+}: {
+  form: any;
+  name: string;
+  label: string;
+  options: { text: string; score: number }[];
+}) => {
   return (
     <FormField
       control={form.control}
@@ -45,7 +50,7 @@ export const FormRadio = ({ form, name, label, options }) => {
           <FormItem>
             <FormLabel>{label}</FormLabel>
             <FormControl>
-              <Radio
+              <RadioGroup.Root
                 className="flex w-full gap-x-4"
                 onValueChange={field.onChange}
                 value={field.value}
@@ -59,7 +64,7 @@ export const FormRadio = ({ form, name, label, options }) => {
                     </FormItem>
                   );
                 })}
-              </Radio>
+              </RadioGroup.Root>
             </FormControl>
             <FormMessage />
           </FormItem>
@@ -69,4 +74,4 @@ export const FormRadio = ({ form, name, label, options }) => {
   );
 };
 
-export { Radio, RadioItem };
+export { RadioItem };

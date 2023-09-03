@@ -1,14 +1,7 @@
 "use client";
-import React, { useState, useEffect, useCallback } from "react";
-import useQuizStore from "@/lib/useQuizStore";
+import React from "react";
+import useQuizStore, { Answer, QuizState } from "@/lib/useQuizStore";
 import questions from "@/lib/questions";
-
-type Answer = {
-  id: number;
-  question: string;
-  answer: string;
-  score: number;
-};
 
 const calculateResult = (totalScore: number) => {
   if (totalScore >= 7) {
@@ -21,11 +14,11 @@ const calculateResult = (totalScore: number) => {
 };
 
 export default function Result() {
-  const { answers } = useQuizStore();
+  const { answers } = useQuizStore() as QuizState;
 
   console.log(answers);
-  const [loading, setLoading] = useState(false);
-  const [result, setResult] = useState<string>("");
+  const [loading, setLoading] = React.useState<boolean>(false);
+  const [result, setResult] = React.useState<string>("");
 
   const calculateTotalScore = React.useCallback(() => {
     const totalScore = answers.reduce((accumulator: number, answer: Answer) => {
@@ -49,7 +42,8 @@ export default function Result() {
     return totalScore;
   }, [answers]);
 
-  useEffect(() => {
+  // MITUL – we likely don't need useEffect here, can avoid
+  React.useEffect(() => {
     setLoading(true);
 
     setTimeout(() => {
