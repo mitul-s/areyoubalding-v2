@@ -18,14 +18,11 @@ const RadioItem = ({
 }) => {
   return (
     <RadioGroup.Item
-      className="bg-white w-[25px] h-[25px] rounded-full shadow-[0_2px_10px] shadow-blackA7 hover:bg-violet3 focus:shadow-[0_0_0_2px] focus:shadow-black outline-none cursor-default"
       value={value}
       {...props}
+      className="bg-blue-600 p-4 rounded-md shadow font-medium data-[state='checked']:bg-indigo-900 transition"
     >
-      <RadioGroup.Indicator className="flex items-center justify-center w-full h-full relative after:content-[''] after:block after:w-[11px] after:h-[11px] after:rounded-[50%] after:bg-violet11" />
-      <label className="text-white text-[15px] leading-none pl-[15px]">
-        {children}
-      </label>
+      {children}
     </RadioGroup.Item>
   );
 };
@@ -55,7 +52,7 @@ export const FormRadio = ({
                 onValueChange={field.onChange}
                 value={field.value}
               >
-                {options.map((option, index) => {
+                {options.map((option) => {
                   return (
                     <FormItem className="w-full" key={option.text}>
                       <FormControl>

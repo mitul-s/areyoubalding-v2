@@ -11,9 +11,9 @@ export type QuizState = {
   currentQuestion: number;
   answers: Answer[];
   results: {
-    balding: string;
-    bald: string;
-    notBalding: string;
+    balding: "balding";
+    bald: "bald";
+    notBalding: "notBalding";
   };
   setCurrentQuestion: (questionNumber: number) => void;
   addAnswer: (answer: Answer) => void;
@@ -23,9 +23,9 @@ const useQuizStore = create((set) => ({
   currentQuestion: 0,
   answers: [],
   results: {
-    balding: "You might be balding.",
-    bald: "You are bald.",
-    notBalding: "You're likely not balding.",
+    balding: "balding",
+    bald: "bald",
+    notBalding: "notBalding",
   },
   setCurrentQuestion: (questionNumber: number) =>
     set({ currentQuestion: questionNumber }),

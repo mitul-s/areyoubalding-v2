@@ -3,18 +3,18 @@ import React from "react";
 import useQuizStore, { Answer, QuizState } from "@/lib/useQuizStore";
 import questions from "@/lib/questions";
 
-const calculateResult = (totalScore: number) => {
-  if (totalScore >= 7) {
-    return "You are bald.";
-  } else if (totalScore >= 4) {
-    return "You might be balding.";
-  } else {
-    return "You're likely not balding.";
-  }
-};
-
 export default function Result() {
-  const { answers } = useQuizStore() as QuizState;
+  const { answers, results } = useQuizStore() as QuizState;
+
+  const calculateResult = (totalScore: number) => {
+    if (totalScore >= 7) {
+      return results.bald;
+    } else if (totalScore >= 4) {
+      return results.balding;
+    } else {
+      return results.notBalding;
+    }
+  };
 
   console.log(answers);
   const [loading, setLoading] = React.useState<boolean>(false);
@@ -48,7 +48,7 @@ export default function Result() {
 
     setTimeout(() => {
       const totalScore = calculateTotalScore();
-      const finalResult = calculateResult(totalScore);
+      const finalResult = calculateResult(10);
       setResult(finalResult);
       setLoading(false);
     }, 2000);
