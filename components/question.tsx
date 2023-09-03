@@ -48,7 +48,9 @@ function Question() {
           name={"answer"}
           options={options}
         />
-        <button type="submit">Next</button>
+        <button className="bg-white text-black p-2 rounded mt-12" type="submit">
+          Next
+        </button>
       </form>
     </Form>
   );

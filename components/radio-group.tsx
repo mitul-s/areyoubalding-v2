@@ -48,7 +48,7 @@ export const FormRadio = ({
             <FormLabel>{label}</FormLabel>
             <FormControl>
               <RadioGroup.Root
-                className="flex w-full gap-x-4"
+                className="flex flex-wrap w-full gap-4"
                 onValueChange={field.onChange}
                 value={field.value}
               >
