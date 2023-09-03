@@ -1,14 +1,16 @@
+"use client";
 import React from "react";
 import { useForm } from "react-hook-form";
 import useQuizStore from "@/lib/useQuizStore";
 import { Form } from "@/components/form";
 import { FormRadio } from "./radio-group";
+import questions from "@/lib/questions";
+import { useRouter } from "next/navigation";
 
-function Question({ questionText, options, questionNumber }) {
-  const { handleSubmit, register, reset } = useForm();
-  const { currentQuestion, setCurrentQuestion, addAnswer, answers } =
-    useQuizStore();
-  const [selectedOption, setSelectedOption] = React.useState(null); // State to track selected option
+function Question() {
+  const { currentQuestion, setCurrentQuestion, addAnswer } = useQuizStore();
+  const { id, question, options } = questions[currentQuestion];
+  const router = useRouter();
 
   const form = useForm({
     defaultValues: {
@@ -16,59 +18,33 @@ function Question({ questionText, options, questionNumber }) {
     },
   });
 
-  function onSubmit(values) {
-    console.log(values);
+  function onSubmit(values: { answer: string }) {
     const findScore = options.find(
       (option) => option.text === values.answer
-    ).score;
+    )?.score;
     addAnswer({
-      question: questionText,
+      id: id,
+      question: question,
       answer: values.answer,
       score: findScore,
     });
 
-    console.log(answers);
-
-    setCurrentQuestion(currentQuestion + 1);
+    if (currentQuestion >= questions.length - 1) {
+      router.push("/q/result");
+    } else {
+      setCurrentQuestion(currentQuestion + 1);
+    }
   }
-
-  // const onSubmit = (data) => {
-  //   console.log(data);
-  //   addAnswer({
-  //     question: questionText,
-  //     answer: data[`answer_${questionNumber}`],
-  //     score: data[`answer_${questionNumber}`].score,
-  //   });
-  //   setSelectedOption(null); // Clear the selected option
-  //   reset(); // Reset the form using useForm reset
-
-  //   setCurrentQuestion(currentQuestion + 1);
-  // };
 
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
-        {/* <h2>{questionText}</h2> */}
         <FormRadio
           form={form}
-          label={questionText}
+          label={question}
           name={"answer"}
           options={options}
         />
-        {/* {options.map((option, index) => (
-        <div key={index}>
-          <input
-            type="radio"
-            value={option.text}
-            {...register("answer")} // Unique identifier
-            checked={selectedOption === option} // Check if this option is selected
-            onChange={() => setSelectedOption(option)} // Update selected option
-          />
-          <label htmlFor={`option_${questionNumber}_${index}`}>
-            {option.text}
-          </label>
-        </div>
-      ))} */}
         <button type="submit">Next</button>
       </form>
     </Form>
