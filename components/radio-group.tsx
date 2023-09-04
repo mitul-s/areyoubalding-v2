@@ -7,16 +7,18 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/form";
+import { cx } from "class-variance-authority";
 
 const RadioItem = ({
   value,
   subtitle,
-  children,
+  heading,
+
   ...props
 }: {
   value: string;
   subtitle?: string;
-  children: React.ReactNode;
+  heading: string;
 }) => {
   return (
     <RadioGroup.Item
@@ -25,11 +27,11 @@ const RadioItem = ({
       {...props}
       // type="submit"
     >
-      <div className="max-w-[16ch] mx-auto">
-        <div className="uppercase text-2xl">Rapidly</div>
+      <div className={cx(subtitle && "max-w-[16ch]", "max-w-[22ch] mx-auto")}>
+        <div className={cx(subtitle && "uppercase text-2xl")}>{heading}</div>
         {subtitle && (
           <span className="text-cherry/60 group-data-[state='checked']:text-cream/50 group-hover:group-data-[state='unchecked']:text-cream/50 leading-tight block">
-            It&apos;s going faster than I&apos;d like it to.
+            {subtitle}
           </span>
         )}
       </div>
@@ -47,7 +49,7 @@ export const FormRadio = ({
   form: any;
   name: string;
   label: string;
-  options: { text: string; score: number }[];
+  options: { text: string; score: number; subtitle: string }[];
 }) => {
   return (
     <FormField
@@ -67,7 +69,11 @@ export const FormRadio = ({
                   return (
                     <FormItem key={option.text}>
                       <FormControl>
-                        <RadioItem value={option.text}>{option.text}</RadioItem>
+                        <RadioItem
+                          value={option.text}
+                          subtitle={option.subtitle}
+                          heading={option.text}
+                        />
                       </FormControl>
                     </FormItem>
                   );

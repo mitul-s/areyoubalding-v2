@@ -3,10 +3,26 @@ export const questions = [
     id: 0,
     question: "How often do you use hair products?",
     options: [
-      { text: "Never, my hair is low maintenance like that", score: 0 },
-      { text: "Rarely, I'm more of a 'wash and go' person", score: 1 },
-      { text: "Regularly, my hair deserves some pampering", score: 2 },
-      { text: "Daily, my hair has its own skincare routine", score: 3 },
+      {
+        text: "Never",
+        subtitle: "My hair is low maintenance like that",
+        score: 0,
+      },
+      {
+        text: "Rarely",
+        subtitle: "I'm more of a 'wash and go' person",
+        score: 1,
+      },
+      {
+        text: "Regularly",
+        subtitle: "My hair deserves some pampering",
+        score: 2,
+      },
+      {
+        text: "Daily",
+        subtitle: "My hair has its own skincare routine",
+        score: 3,
+      },
     ],
   },
   {
@@ -14,10 +30,15 @@ export const questions = [
     question: "Are you genetically predisposed to hair loss?",
     options: [
       {
-        text: "Yes, it runs in the family - the baldness legacy lives on!",
+        text: "Yes",
+        subtitle: "My hair is a little sensitive to the elements",
         score: 3,
       },
-      { text: "No, I have luscious locks in my genes", score: 0 },
+      {
+        text: "No",
+        subtitle: "I have luscious locks in my genes",
+        score: 0,
+      },
     ],
   },
   {
