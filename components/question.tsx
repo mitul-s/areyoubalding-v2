@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { useForm } from "react-hook-form";
-import useQuizStore, { QuizState } from "@/lib/useQuizStore";
+import useQuiz, { QuizState } from "@/lib/useQuiz";
 import { Form } from "@/components/form";
 import { FormRadio } from "@/components/radio-group";
 import questions from "@/lib/questions";
@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 
 function Question() {
   const { currentQuestion, setCurrentQuestion, addAnswer } =
-    useQuizStore() as QuizState;
+    useQuiz() as QuizState;
   const { id, question, options } = questions[currentQuestion];
   const router = useRouter();
 
@@ -48,7 +48,10 @@ function Question() {
           name={"answer"}
           options={options}
         />
-        <button className="bg-white text-black p-2 rounded mt-12" type="submit">
+        <button
+          className="text-white p-4 font-semibold uppercase mt-2 rounded-[10px] w-full bg-ramen"
+          type="submit"
+        >
           Next
         </button>
       </form>

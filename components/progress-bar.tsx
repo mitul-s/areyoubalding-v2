@@ -1,17 +1,17 @@
 "use client";
-import useQuizStore, { QuizState } from "@/lib/useQuizStore";
+import useQuiz, { QuizState } from "@/lib/useQuiz";
 import questions from "@/lib/questions";
 import * as Progress from "@radix-ui/react-progress";
 
 const ProgressBar = () => {
-  const { currentQuestion } = useQuizStore() as QuizState;
+  const { currentQuestion } = useQuiz() as QuizState;
   const totalQuestions = questions.length;
 
-  const progress = (currentQuestion / totalQuestions) * 100;
+  const progress = Math.round((currentQuestion / totalQuestions) * 100);
 
   return (
     <Progress.Root
-      className="relative overflow-hidden bg-blackA9 rounded-full w-[300px] h-[25px]"
+      className="relative overflow-hidden rounded-l-[6px] rounded-r-[10px] w-full h-10 border-ramen border-2"
       style={{
         // Fix overflow clipping in Safari
         // https://gist.github.com/domske/b66047671c780a238b51c51ffde8d3a0
@@ -20,7 +20,7 @@ const ProgressBar = () => {
       value={progress}
     >
       <Progress.Indicator
-        className="bg-white w-full h-full transition-transform duration-[660ms] ease-[cubic-bezier(0.65, 0, 0.35, 1)]"
+        className="bg-ramen w-full h-full transition-transform duration-[660ms] ease-[cubic-bezier(0.65, 0, 0.35, 1)]"
         style={{ transform: `translateX(-${100 - progress}%)` }}
       />
     </Progress.Root>

@@ -1,10 +1,12 @@
 "use client";
 import React from "react";
-import useQuizStore, { Answer, QuizState } from "@/lib/useQuizStore";
+import useQuiz, { Answer, QuizState } from "@/lib/useQuiz";
 import questions from "@/lib/questions";
+import { useRouter } from "next/navigation";
 
 export default function Result() {
-  const { answers, results } = useQuizStore() as QuizState;
+  const { answers, results } = useQuiz() as QuizState;
+  const router = useRouter();
 
   const calculateResult = (totalScore: number) => {
     const totalPossibleScore = questions.reduce((total, question) => {
@@ -64,10 +66,17 @@ export default function Result() {
     }, 2000);
   }, [answers, calculateTotalScore]);
 
+  // if (answers.length === 0) {
+  //   router.push("/");
+  // }
+
   return (
-    <div>
-      <h2>Result:</h2>
-      {loading ? <p>Loading... Funky animation here!</p> : <p>{result}</p>}
+    <div className="flex justify-center items-center text-center h-full">
+      <h2 className="text-[calc(16px+9vw)] tracking-tighter md:tracking-[-0.425rem] text-royal font-black leading-none">
+        {result}...
+      </h2>
+
+      {/* {loading ? <p>Loading... Funky animation here!</p> : <p>{result}</p>} */}
     </div>
   );
 }

@@ -19,7 +19,7 @@ export type QuizState = {
   addAnswer: (answer: Answer) => void;
 };
 
-const useQuizStore = create((set) => ({
+const useQuiz = create((set) => ({
   currentQuestion: 0,
   answers: [],
   results: {
@@ -33,4 +33,4 @@ const useQuizStore = create((set) => ({
     set((state: QuizState) => ({ answers: [...state.answers, answer] })),
 }));
 
-export default useQuizStore;
+export default useQuiz;
