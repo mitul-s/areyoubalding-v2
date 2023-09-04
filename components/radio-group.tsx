@@ -49,7 +49,7 @@ export const FormRadio = ({
   form: any;
   name: string;
   label: string;
-  options: { text: string; score: number; subtitle: string }[];
+  options: { text: string; score: number; subtitle?: string }[];
 }) => {
   return (
     <FormField
