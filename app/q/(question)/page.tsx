@@ -13,7 +13,13 @@ const questionLayout = cva(["grid w-full"], {
   },
 });
 
-const HorizontalLayout = ({ children, question, subtitle }) => {
+interface Layout {
+  children: React.ReactNode;
+  question: (typeof questions)[number];
+  subtitle: string;
+}
+
+const HorizontalLayout = ({ children, question, subtitle }: Layout) => {
   return (
     <div className="grid grid-rows-2 text-center h-[calc(100vh-125px)] py-4 px-2 w-full">
       <div className="rounded-[10px] h-full px-6 flex flex-col max-w-3xl justify-center items-center mx-auto">
@@ -27,7 +33,7 @@ const HorizontalLayout = ({ children, question, subtitle }) => {
   );
 };
 
-const VerticalLayout = ({ children, question, subtitle }) => {
+const VerticalLayout = ({ children, question, subtitle }: Layout) => {
   return (
     <div className="grid grid-cols-2 h-[calc(100vh-70px)] py-4 px-2 w-full">
       <div className="max-w-2xl rounded-[10px] h-full px-6">
@@ -44,7 +50,7 @@ const VerticalLayout = ({ children, question, subtitle }) => {
 const QuestionPage = () => {
   const { currentQuestion } = useQuiz() as QuizState;
   const question = questions[currentQuestion];
-  const intent = questions[currentQuestion]?.intent ?? "horizontal";
+  // const intent = questions[currentQuestion]?.intent ?? "horizontal";
   return (
     // <VerticalLayout
     //   question={question}
