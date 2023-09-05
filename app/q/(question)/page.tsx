@@ -35,7 +35,7 @@ const HorizontalLayout = ({ children, question, subtitle }: Layout) => {
 
 const VerticalLayout = ({ children, question, subtitle }: Layout) => {
   return (
-    <div className="grid grid-cols-2 h-[calc(100vh-70px)] py-4 px-2 w-full">
+    <div className="grid grid-cols-2 h-[calc(100vh-130px)] py-4 px-2 w-full">
       <div className="max-w-2xl rounded-[10px] h-full px-6">
         <h1 className="text-royal text-7xl font-black leading-[3.9rem] tracking-tight">
           {question.question}
@@ -52,22 +52,22 @@ const QuestionPage = () => {
   const question = questions[currentQuestion];
   // const intent = questions[currentQuestion]?.intent ?? "horizontal";
   return (
-    // <VerticalLayout
-    //   question={question}
-    //   subtitle={
-    //     "Officia exercitation ea laborum ipsum mollit esse in ipsum enim."
-    //   }
-    // >
-    //   <Question />
-    // </VerticalLayout>
-    <HorizontalLayout
+    <VerticalLayout
       question={question}
       subtitle={
         "Officia exercitation ea laborum ipsum mollit esse in ipsum enim."
       }
     >
       <Question />
-    </HorizontalLayout>
+    </VerticalLayout>
+    // <HorizontalLayout
+    //   question={question}
+    //   subtitle={
+    //     "Officia exercitation ea laborum ipsum mollit esse in ipsum enim."
+    //   }
+    // >
+    //   <Question />
+    // </HorizontalLayout>
   );
 };
 

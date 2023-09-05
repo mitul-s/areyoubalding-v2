@@ -8,7 +8,7 @@ import questions from "@/lib/questions";
 import { useRouter } from "next/navigation";
 
 function Question() {
-  const { currentQuestion, setCurrentQuestion, addAnswer } =
+  const { currentQuestion, setCurrentQuestion, addAnswer, answers } =
     useQuiz() as QuizState;
   const { id, question, options } = questions[currentQuestion];
   const router = useRouter();
@@ -19,11 +19,16 @@ function Question() {
     },
   });
 
+  console.log(answers);
+
   function onSubmit(values: { answer: string }) {
     // Instead of filter, I'm using find here to make sure it's never undefined
     // Although, eh.. would never be undefined anyways but satisfies TS
-    const score = options.filter((option) => option.text === values.answer)[0]
-      .score;
+
+    const currentQuestionObject = questions[currentQuestion];
+    const score = currentQuestionObject.options.filter(
+      (option) => option.text === values.answer
+    )[0].score;
 
     addAnswer({
       id: id,
