@@ -2,6 +2,7 @@ export const questions = [
   {
     id: 0,
     question: "How often do you use hair products?",
+    layout: "horizontal",
     options: [
       {
         text: "Never",
@@ -28,6 +29,7 @@ export const questions = [
   {
     id: 1,
     question: "Are you genetically predisposed to hair loss?",
+    layout: "horizontal",
     options: [
       {
         text: "Yes",
@@ -44,6 +46,7 @@ export const questions = [
   {
     id: 2,
     question: "Do you experience hair thinning?",
+    layout: "vertical",
     options: [
       {
         text: "Yes, my hair has been practicing the art of vanishing",

@@ -24,8 +24,8 @@ const RadioItem = ({
     <RadioGroup.Item
       value={value}
       className="rounded-[10px] p-4 h-full text-cherry font-semibold data-[state='checked']:bg-cherry w-full data-[state='unchecked']:bg-cherry/50 transition data-[state='checked']:text-cream group hover:data-[state='unchecked']:bg-cherry hover:data-[state='unchecked']:text-cream focus:ring-2 focus:ring-cherry/50 focus:ring-offset-2 focus:ring-offset-cherry/50  focus:outline-none"
+      type="submit"
       {...props}
-      // type="submit"
     >
       <div className={cx(subtitle && "max-w-[16ch]", "max-w-[22ch] mx-auto")}>
         <div className={cx(subtitle && "uppercase text-2xl")}>{heading}</div>

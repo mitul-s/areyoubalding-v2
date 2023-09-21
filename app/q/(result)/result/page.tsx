@@ -3,6 +3,7 @@ import React from "react";
 import useQuiz, { Answer, QuizState } from "@/lib/useQuiz";
 import questions from "@/lib/questions";
 import { useRouter } from "next/navigation";
+import { ArrowDown } from "lucide-react";
 
 export default function Result() {
   const { answers, results } = useQuiz() as QuizState;
@@ -71,12 +72,24 @@ export default function Result() {
   // }
 
   return (
-    <div className="flex justify-center items-center text-center h-full">
-      <h2 className="text-[calc(16px+9vw)] tracking-tighter md:tracking-[-0.425rem] text-royal font-black leading-none">
-        {result}...
-      </h2>
+    <>
+      <div className="relative flex flex-col justify-center items-center text-center h-full">
+        <h2 className="text-[calc(16px+9vw)] tracking-tighter md:tracking-[-0.425rem] text-royal font-black leading-none">
+          {result}...
+        </h2>
 
-      {/* {loading ? <p>Loading... Funky animation here!</p> : <p>{result}</p>} */}
-    </div>
+        <button className="absolute bottom-6 left-1/2 bg-ramen rounded-full p-3 text-white hover:bg-ramen/50 transition">
+          <ArrowDown />
+        </button>
+        {/* {loading ? <p>Loading... Funky animation here!</p> : <p>{result}</p>} */}
+      </div>
+      <div className="bg-royal text-white -mx-4 px-4">
+        <h2 className="text-6xl font-bold">What does this mean for you?</h2>
+        <p>
+          Commodo minim occaecat eu voluptate eiusmod aliqua voluptate qui
+          eiusmod.
+        </p>
+      </div>
+    </>
   );
 }

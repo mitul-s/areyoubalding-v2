@@ -53,12 +53,12 @@ function Question() {
           name={"answer"}
           options={options}
         />
-        <button
+        {/* <button
           className="text-white p-4 font-semibold uppercase mt-2 rounded-[10px] w-full bg-ramen"
           type="submit"
         >
           Next
-        </button>
+        </button> */}
       </form>
     </Form>
   );

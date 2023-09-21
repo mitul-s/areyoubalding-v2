@@ -7,7 +7,7 @@ import { cva } from "class-variance-authority";
 const questionLayout = cva(["grid w-full"], {
   variants: {
     intent: {
-      horizontal: ["text-center justify-center"],
+      horizontal: ["text-center", "justify-center"],
       vertical: ["grid-cols-2"],
     },
   },
@@ -21,7 +21,7 @@ interface Layout {
 
 const HorizontalLayout = ({ children, question, subtitle }: Layout) => {
   return (
-    <div className="grid grid-rows-2 text-center h-[calc(100vh-125px)] py-4 px-2 w-full">
+    <div className="grid grid-rows-2 text-center h-[calc(100vh-65px)] py-4 px-2 w-full">
       <div className="rounded-[10px] h-full px-6 flex flex-col max-w-3xl justify-center items-center mx-auto">
         <h1 className="text-royal text-7xl font-black leading-[3.9rem] tracking-tight">
           {question.question}
@@ -35,12 +35,12 @@ const HorizontalLayout = ({ children, question, subtitle }: Layout) => {
 
 const VerticalLayout = ({ children, question, subtitle }: Layout) => {
   return (
-    <div className="grid grid-cols-2 h-[calc(100vh-130px)] py-4 px-2 w-full">
-      <div className="max-w-2xl rounded-[10px] h-full px-6">
+    <div className="grid md:grid-cols-2 h-[calc(100vh-65px)] py-4 px-2 w-full">
+      <div className="max-w-2xl rounded-[10px] h-full px-6 mt-4 -ml-4">
         <h1 className="text-royal text-7xl font-black leading-[3.9rem] tracking-tight">
           {question.question}
         </h1>
-        <p className="text-royal/60 text-2xl mt-6 max-w-sm ">{subtitle}</p>
+        <p className="text-royal/60 text-2xl mt-6 max-w-sm">{subtitle}</p>
       </div>
       {children}
     </div>
@@ -50,16 +50,19 @@ const VerticalLayout = ({ children, question, subtitle }: Layout) => {
 const QuestionPage = () => {
   const { currentQuestion } = useQuiz() as QuizState;
   const question = questions[currentQuestion];
-  // const intent = questions[currentQuestion]?.intent ?? "horizontal";
+  const Component =
+    questions[currentQuestion].layout === "horizontal"
+      ? HorizontalLayout
+      : VerticalLayout;
   return (
-    <VerticalLayout
+    <Component
       question={question}
       subtitle={
         "Officia exercitation ea laborum ipsum mollit esse in ipsum enim."
       }
     >
       <Question />
-    </VerticalLayout>
+    </Component>
     // <HorizontalLayout
     //   question={question}
     //   subtitle={
