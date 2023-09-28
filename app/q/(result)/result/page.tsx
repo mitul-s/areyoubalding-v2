@@ -78,17 +78,41 @@ export default function Result() {
           {result}...
         </h2>
 
-        <button className="absolute bottom-6 left-1/2 bg-ramen rounded-full p-3 text-white hover:bg-ramen/50 transition">
+        <button className="absolute bottom-6 left-1/2 bg-ramen rounded-full p-3 text-white hover:bg-ramen/50 transition -translate-x-1/2">
           <ArrowDown />
         </button>
         {/* {loading ? <p>Loading... Funky animation here!</p> : <p>{result}</p>} */}
       </div>
-      <div className="bg-royal text-white -mx-4 px-4">
-        <h2 className="text-6xl font-bold">What does this mean for you?</h2>
-        <p>
+      <div className="bg-royal text-white -mx-3 px-4 py-12 rounded-b-[10px] text-center space-y-6">
+        <h2 className="text-6xl font-bold tracking-tighter">
+          What does this mean for you?
+        </h2>
+        <p className="text-3xl max-w-3xl mx-auto">
           Commodo minim occaecat eu voluptate eiusmod aliqua voluptate qui
-          eiusmod.
+          eiusmod. Commodo minim occaecat eu voluptate eiusmod aliqua voluptate
+          qui eiusmod.
         </p>
+      </div>
+      <div>
+        <h2>What can you do to stop it?</h2>
+      </div>
+      <div className="flex items-center justify-center flex-col">
+        <h2 className="text-7xl font-black text-royal tracking-tighter">
+          Products
+        </h2>
+        <p className="text-royal">Some things that can help</p>
+        <div className="flex flex-wrap gap-x-12">
+          <div className="bg-lettuce rounded-md text-white px-6 pt-6 pb-8 w-96">
+            <h3 className="text-4xl tracking-tight font-bold mb-2">
+              Finastride
+            </h3>
+            <p className="text-lg text-white/80 leading-tight">
+              Deserunt cupidatat qui nisi anim sint labore cillum laboris culpa
+              reprehenderit irure pariatur nulla.
+            </p>
+            <div className="bg-royal h-36 w-full rounded mt-4">An image</div>
+          </div>
+        </div>
       </div>
     </>
   );
