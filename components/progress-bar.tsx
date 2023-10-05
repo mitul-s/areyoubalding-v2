@@ -7,11 +7,11 @@ const ProgressBar = () => {
   const { currentQuestion } = useQuiz() as QuizState;
   const totalQuestions = questions.length;
 
-  const progress = Math.round((currentQuestion / totalQuestions) * 100);
+  const progress = Math.round(((currentQuestion + 1) / totalQuestions) * 100);
 
   return (
     <Progress.Root
-      className="relative overflow-hidden rounded-l-[6px] rounded-r-[10px] w-full h-10 border-ramen border-2"
+      className="relative overflow-hidden rounded-[10px] w-full h-10 border-ramen border-2"
       style={{
         // Fix overflow clipping in Safari
         // https://gist.github.com/domske/b66047671c780a238b51c51ffde8d3a0

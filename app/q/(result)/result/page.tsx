@@ -4,6 +4,7 @@ import useQuiz, { Answer, QuizState } from "@/lib/useQuiz";
 import questions from "@/lib/questions";
 import { useRouter } from "next/navigation";
 import { ArrowDown } from "lucide-react";
+import Link from "next/link";
 
 export default function Result() {
   const { answers, results } = useQuiz() as QuizState;
@@ -83,35 +84,51 @@ export default function Result() {
         </button>
         {/* {loading ? <p>Loading... Funky animation here!</p> : <p>{result}</p>} */}
       </div>
-      <div className="bg-royal text-white -mx-3 px-4 py-12 rounded-b-[10px] text-center space-y-6">
+      <div className="bg-royal text-white -mx-3 px-4 py-32 rounded-b-[10px] text-center space-y-6">
         <h2 className="text-6xl font-bold tracking-tighter">
           What does this mean for you?
         </h2>
-        <p className="text-3xl max-w-3xl mx-auto">
+        <p className="text-2xl max-w-3xl mx-auto">
           Commodo minim occaecat eu voluptate eiusmod aliqua voluptate qui
           eiusmod. Commodo minim occaecat eu voluptate eiusmod aliqua voluptate
           qui eiusmod.
         </p>
       </div>
       <div>
-        <h2>What can you do to stop it?</h2>
+        <h2 className="text-6xl font-bold tracking-tighter text-royal">
+          What can you do to stop it?
+        </h2>
       </div>
-      <div className="flex items-center justify-center flex-col">
-        <h2 className="text-7xl font-black text-royal tracking-tighter">
+      <div className="flex items-start justify-center flex-col">
+        <h2 className="text-7xl font-black text-lettuce tracking-tighter">
           Products
         </h2>
-        <p className="text-royal">Some things that can help</p>
-        <div className="flex flex-wrap gap-x-12">
-          <div className="bg-lettuce rounded-md text-white px-6 pt-6 pb-8 w-96">
+        <p className="text-2xl max-w-3xl text-lettuce">
+          Commodo minim occaecat eu voluptate eiusmod aliqua voluptate qui
+          eiusmod.
+        </p>
+        <div className="flex flex-wrap gap-x-12 py-12">
+          <div className="bg-[#f9f9f9] rounded-md text-black px-6 pt-6 pb-8 w-96 h-96">
             <h3 className="text-4xl tracking-tight font-bold mb-2">
               Finastride
             </h3>
-            <p className="text-lg text-white/80 leading-tight">
+            <p className="text-lg  leading-tight">
               Deserunt cupidatat qui nisi anim sint labore cillum laboris culpa
               reprehenderit irure pariatur nulla.
             </p>
-            <div className="bg-royal h-36 w-full rounded mt-4">An image</div>
+            <div className="h-36 w-full rounded mt-4">An image</div>
+            <button className="bg-lettuce rounded-[5px] font-bold py-4 w-full text-white">
+              Learn more
+            </button>
           </div>
+        </div>
+      </div>
+      <div className="flex items-center justify-center -mx-3 bg-cherry py-8">
+        <div className="w-full px-4 text-xs text-white">
+          <p>
+            Built by <Link href="">Mitul Shah</Link>
+          </p>
+          <span>Disclaimer: I am not a doctor and none of this legit.</span>
         </div>
       </div>
     </>
