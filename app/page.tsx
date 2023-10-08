@@ -12,8 +12,8 @@ export default function Home() {
           </span>
         </h1>
         <p className="text-xl max-w-xl text-royal/75 font-semibold">
-          Culpa amet proident eiusmod proident excepteur mollit mollit labore
-          pariatur pariatur irure laboris labore.
+          Take a short, ten question quiz to find out if a head without hair is
+          in your future.
         </p>
       </div>
       <div className="px-2 pb-2 w-full absolute bottom-0">

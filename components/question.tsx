@@ -19,8 +19,6 @@ function Question() {
     },
   });
 
-  console.log(answers);
-
   function onSubmit(values: { answer: string }) {
     // Instead of filter, I'm using find here to make sure it's never undefined
     // Although, eh.. would never be undefined anyways but satisfies TS

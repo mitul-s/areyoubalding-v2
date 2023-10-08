@@ -23,10 +23,12 @@ const HorizontalLayout = ({ children, question, subtitle }: Layout) => {
   return (
     <div className="grid grid-rows-2 text-center h-[calc(100vh-65px)] py-4 px-2 w-full">
       <div className="rounded-[10px] h-full px-6 flex flex-col max-w-3xl justify-center items-center mx-auto">
-        <h1 className="text-royal text-7xl font-black leading-[3.9rem] tracking-tight">
+        <h1 className="text-royal text-5xl md:text-7xl font-black md:leading-[3.9rem] tracking-tight">
           {question.question}
         </h1>
-        <p className="text-royal/60 text-2xl mt-6 max-w-lg">{subtitle}</p>
+        <p className="max-w-lg mt-2 text-lg md:mt-6 md:text-2xl text-royal/60">
+          {subtitle}
+        </p>
       </div>
       {children}
     </div>
@@ -37,10 +39,12 @@ const VerticalLayout = ({ children, question, subtitle }: Layout) => {
   return (
     <div className="grid md:grid-cols-2 h-[calc(100vh-65px)] py-4 px-2 w-full">
       <div className="max-w-2xl rounded-[10px] h-full px-6 mt-4 -ml-4">
-        <h1 className="text-royal text-7xl font-black leading-[3.9rem] tracking-tight">
+        <h1 className="text-royal text-5xl md:text-7xl font-black md:leading-[3.9rem] tracking-tight">
           {question.question}
         </h1>
-        <p className="text-royal/60 text-2xl mt-6 max-w-sm">{subtitle}</p>
+        <p className="max-w-sm mt-2 text-lg md:mt-6 md:text-2xl text-royal/60">
+          {subtitle}
+        </p>
       </div>
       {children}
     </div>
@@ -63,14 +67,6 @@ const QuestionPage = () => {
     >
       <Question />
     </Component>
-    // <HorizontalLayout
-    //   question={question}
-    //   subtitle={
-    //     "Officia exercitation ea laborum ipsum mollit esse in ipsum enim."
-    //   }
-    // >
-    //   <Question />
-    // </HorizontalLayout>
   );
 };
 
