@@ -4,11 +4,14 @@ import Snowfall from "./snowflakes/Snowfall";
 import { AnimatePresence, motion } from "framer-motion";
 
 export default function Page() {
-  const text = [
-    "Counting your hairs",
-    "Scratching your head",
-    "Rubbing my shiny head",
-  ];
+  const text = React.useMemo(
+    () => [
+      "Counting your hairs",
+      "Scratching your head",
+      "Rubbing my shiny head",
+    ],
+    []
+  );
 
   const [currentText, setCurrentText] = React.useState(text[0]);
   const [previousText, setPreviousText] = React.useState<string>("");
@@ -25,6 +28,7 @@ export default function Page() {
 
     return () => clearInterval(interval);
   }, [currentText, text]);
+
   return (
     <>
       <div className="flex items-center justify-center w-full h-full">
@@ -32,9 +36,10 @@ export default function Page() {
           {currentText !== previousText && (
             <motion.h1
               key={currentText}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.2 }}
               className="font-black tracking-tighter text-7xl text-royal"
             >
               {currentText}

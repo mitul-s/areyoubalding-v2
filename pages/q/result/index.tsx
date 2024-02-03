@@ -6,12 +6,15 @@ import { useRouter } from "next/navigation";
 import { ArrowDown } from "lucide-react";
 import Link from "next/link";
 import LoadingPage from "@/components/loading-page";
-// import LoadingPage from "@/components/loading-page";
 
 const ProductCard = ({
   title,
   description = "Deserunt cupidatat qui nisi anim sint labore cillum laboris culpa reprehenderit irure pariatur nulla.",
   link,
+}: {
+  title: string;
+  description?: string;
+  link: string;
 }) => {
   return (
     <div className="bg-[#f9f9f9] rounded-md text-black px-6 pt-6 pb-8 w-96 h-96">
@@ -84,7 +87,7 @@ export default function Result() {
       const finalResult = calculateResult(totalScore);
       setResult(finalResult);
       setLoading(false);
-    }, 0);
+    }, 6000);
   }, [answers, calculateTotalScore]);
 
   // if (answers.length === 0) {
@@ -94,8 +97,7 @@ export default function Result() {
   return (
     <>
       {loading ? (
-        // <LoadingPage />
-        <>yo</>
+        <LoadingPage />
       ) : (
         <>
           <div className="relative flex flex-col items-center justify-center h-full scroll-smooth">

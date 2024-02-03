@@ -3,6 +3,7 @@ import Question from "@/components/question";
 import questions from "@/lib/questions";
 import useQuiz, { QuizState } from "@/lib/useQuiz";
 import { cva } from "class-variance-authority";
+import Layout from "./layout";
 
 const questionLayout = cva(["grid w-full"], {
   variants: {
@@ -59,14 +60,16 @@ const QuestionPage = () => {
       ? HorizontalLayout
       : VerticalLayout;
   return (
-    <Component
-      question={question}
-      subtitle={
-        "Officia exercitation ea laborum ipsum mollit esse in ipsum enim."
-      }
-    >
-      <Question />
-    </Component>
+    <Layout>
+      <Component
+        question={question}
+        subtitle={
+          "Officia exercitation ea laborum ipsum mollit esse in ipsum enim."
+        }
+      >
+        <Question />
+      </Component>
+    </Layout>
   );
 };
 

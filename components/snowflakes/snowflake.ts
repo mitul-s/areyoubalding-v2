@@ -64,7 +64,7 @@ export type SnowflakeConfig = Partial<SnowflakeProps>;
 export const defaultConfig: SnowflakeProps = {
   color: "#3D2314",
   radius: [0.3, 2.0],
-  speed: [1.0, 3.0],
+  speed: [1.9, 4.0],
   wind: [-0.5, 1.2],
   changeFrequency: 200,
   rotationSpeed: [-1.0, 1.0],
