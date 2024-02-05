@@ -22,7 +22,7 @@ interface Layout {
 
 const HorizontalLayout = ({ children, question, subtitle }: Layout) => {
   return (
-    <div className="grid grid-rows-2 text-center h-[calc(100vh-65px)] py-4 px-2 w-full">
+    <div className="grid grid-rows-2 text-center h-[calc(100vh-65px)] pt-4 pb-2 px-2 w-full">
       <div className="rounded-[10px] h-full px-6 flex flex-col max-w-3xl justify-center items-center mx-auto">
         <h1 className="text-royal text-5xl md:text-7xl font-black md:leading-[3.9rem] tracking-tight">
           {question.question}

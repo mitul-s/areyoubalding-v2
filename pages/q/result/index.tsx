@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { ArrowDown } from "lucide-react";
 import Link from "next/link";
 import LoadingPage from "@/components/loading-page";
+import { AnimatePresence } from "framer-motion";
 
 const ProductCard = ({
   title,
@@ -96,124 +97,86 @@ export default function Result() {
 
   return (
     <>
-      {loading ? (
+      {/* {loading ? (
         <LoadingPage />
-      ) : (
-        <>
-          <div className="relative flex flex-col items-center justify-center h-full scroll-smooth">
-            <h2 className="px-4 text-[calc(16px+9vw)] tracking-tighter md:tracking-[-0.425rem] text-royal font-black leading-none text-center">
-              {result}...
-            </h2>
+      ) : ( */}
+      <>
+        <div className="relative flex flex-col items-center justify-center h-full scroll-smooth">
+          <h2 className="px-4 text-[calc(16px+9vw)] tracking-tighter md:tracking-[-0.425rem] text-royal font-black leading-none text-center">
+            {result}...
+          </h2>
 
-            <a
-              href="#what-does-this-mean"
-              className="absolute p-3 text-white transition -translate-x-1/2 rounded-full bottom-6 left-1/2 bg-ramen hover:bg-ramen/50"
-            >
-              <ArrowDown />
-            </a>
-          </div>
-          <div
-            id="what-does-this-mean"
-            className="scroll-smooth bg-royal text-white -mx-3 px-4 py-32 rounded-b-[10px] text-center space-y-6"
+          <a
+            href="#what-does-this-mean"
+            className="absolute p-3 text-white transition -translate-x-1/2 rounded-full bottom-6 left-1/2 bg-ramen hover:bg-ramen/50"
           >
-            <h2 className="text-6xl font-bold tracking-tighter">
-              What does this mean for you?
-            </h2>
-            <p className="max-w-3xl mx-auto text-2xl">
-              Commodo minim occaecat eu voluptate eiusmod aliqua voluptate qui
-              eiusmod. Commodo minim occaecat eu voluptate eiusmod aliqua
-              voluptate qui eiusmod.
-            </p>
-          </div>
-          <div className="py-32 space-y-6 text-center">
-            <h2 className="text-6xl font-bold tracking-tighter text-royal">
-              What can you do to stop it?
-            </h2>
-            <p className="max-w-3xl mx-auto text-2xl text-royal">
-              Commodo minim occaecat eu voluptate eiusmod aliqua voluptate qui
-              eiusmod. Commodo minim occaecat eu voluptate eiusmod aliqua
-              voluptate qui eiusmod.
-            </p>
-          </div>
-          <div>
-            <div className="w-full h-1 rounded-md bg-royal" />
-            <div className="flex py-12 gap-x-6">
-              <div className="w-1/3 rounded-sm h-96 bg-cream">
-                <h2 className="font-black tracking-tighter text-7xl text-cherry">
-                  Hair loss products can help in a few ways
-                </h2>
+            <ArrowDown />
+          </a>
+        </div>
+        <div
+          id="what-does-this-mean"
+          className="scroll-smooth bg-royal text-white -mx-3 px-4 py-32 rounded-b-[10px] text-center space-y-6"
+        >
+          <h2 className="text-6xl font-bold tracking-tighter">
+            What does this mean for you?
+          </h2>
+          <p className="max-w-3xl mx-auto text-2xl">
+            Commodo minim occaecat eu voluptate eiusmod aliqua voluptate qui
+            eiusmod. Commodo minim occaecat eu voluptate eiusmod aliqua
+            voluptate qui eiusmod.
+          </p>
+        </div>
+        <div className="py-32 space-y-6 text-center">
+          <h2 className="text-6xl font-bold tracking-tighter text-royal">
+            What can you do to stop it?
+          </h2>
+          <p className="max-w-3xl mx-auto text-2xl text-royal">
+            Commodo minim occaecat eu voluptate eiusmod aliqua voluptate qui
+            eiusmod. Commodo minim occaecat eu voluptate eiusmod aliqua
+            voluptate qui eiusmod.
+          </p>
+        </div>
+        <div>
+          <div className="bg-cream !text-royal p-4">
+            <h3 className="text-6xl font-bold tracking-tighter ">
+              It&apos;s not the end... yet.
+            </h3>
+            <p>Some text</p>
+            <div className="grid grid-cols-2 grid-rows-3 gap-3">
+              <div className="bg-white rounded-md border p-4 row-span-2 shadow-sm flex flex-col gap-y-4">
+                <h3 className="text-royal text-6xl font-bold">Minoxidil</h3>
+                <p className="text-2xl">
+                  Laboris non in nisi tempor deserunt do enim. Nostrud quis
+                  exercitation in veniam do exercitation ea exercitation qui.
+                  Aliqua labore elit non cillum aliqua aliqua enim minim qui
+                  veniam non ea aute eu magna. Enim et consequat consectetur
+                  pariatur adipisicing labore aute culpa adipisicing nostrud
+                  magna ullamco ea aliqua.
+                </p>
               </div>
-              <div className="grid w-2/3 min-h-full grid-cols-2 gap-1 text-left">
-                <div className="h-full bg-cherry text-cream rounded-[10px] px-6 py-4">
-                  <h3 className="max-w-sm text-6xl font-bold tracking-tighter uppercase">
-                    Loss prevention
-                  </h3>
-                  <p className="text-2xl font-medium">
-                    Minim anim tempor exercitation dolore officia nulla enim
-                    consequat culpa qui dolor officia esse ad in. Minim anim
-                    tempor exercitation dolore officia nulla enim consequat
-                    culpa qui dolor officia esse ad in. Minim anim tempor
-                    exercitation dolore officia nulla enim consequat culpa qui
-                    dolor officia esse ad in. Minim anim tempor exercitation
-                    dolore officia nulla enim consequat culpa qui dolor officia
-                    esse ad in.
-                  </p>
-                </div>
-                <div className="h-full bg-cherry text-cream rounded-[10px] px-6 py-4">
-                  <h3 className="text-6xl font-bold tracking-tighter uppercase">
-                    Loss prevention
-                  </h3>
-                  <p className="text-2xl font-medium">
-                    Minim anim tempor exercitation dolore officia nulla enim
-                    consequat culpa qui dolor officia esse ad in.
-                  </p>
-                </div>
-                <div className="h-full bg-cherry text-cream rounded-[10px] px-6 py-4">
-                  <h3 className="text-6xl font-bold tracking-tighter uppercase">
-                    Loss prevention
-                  </h3>
-                  <p className="text-2xl font-medium">
-                    Minim anim tempor exercitation dolore officia nulla enim
-                    consequat culpa qui dolor officia esse ad in.
-                  </p>
-                </div>
-                <div className="h-full bg-cherry text-cream rounded-[10px] px-6 py-4">
-                  <h3 className="text-6xl font-bold tracking-tighter uppercase">
-                    Loss prevention
-                  </h3>
-                  <p className="text-2xl font-medium">
-                    Minim anim tempor exercitation dolore officia nulla enim
-                    consequat culpa qui dolor officia esse ad in.
-                  </p>
-                </div>
+              <div className="bg-cream rounded-md border p-4 row-span-1">
+                <h3 className="text-black text-3xl font-bold">Minoxidil</h3>
+              </div>
+              <div className="bg-cream rounded-md border p-4 row-span-2">
+                <h3 className="text-black text-3xl font-bold">Minoxidil</h3>
+              </div>
+              <div className="bg-cream rounded-md border p-4 row-span-1">
+                <h3 className="text-black text-3xl font-bold">Minoxidil</h3>
               </div>
             </div>
           </div>
-          <div className="flex flex-col items-start justify-center">
-            <h2 className="font-black tracking-tighter text-7xl text-lettuce">
-              Products
-            </h2>
-            <p className="max-w-3xl text-2xl text-lettuce">
-              Commodo minim occaecat eu voluptate eiusmod aliqua voluptate qui
-              eiusmod.
+        </div>
+        <div className="flex items-center justify-center py-4 -mx-3 bg-black">
+          <div className="flex items-center justify-between w-full px-4 text-xs text-white">
+            <p>
+              Built by{" "}
+              <Link href="https://twitter.com/typicalmitul">Mitul Shah</Link>
             </p>
-            <div className="grid grid-cols-1 gap-12 py-12 mx-auto md:grid-cols-3">
-              <ProductCard title="Finastride" link="" />
-              <ProductCard title="Finastride" link="" />
-              <ProductCard title="Finastride" link="" />
-            </div>
+            <span>Disclaimer: I am not a doctor and none of this legit.</span>
           </div>
-          <div className="flex items-center justify-center py-4 -mx-3 bg-black">
-            <div className="flex items-center justify-between w-full px-4 text-xs text-white">
-              <p>
-                Built by{" "}
-                <Link href="https://twitter.com/typicalmitul">Mitul Shah</Link>
-              </p>
-              <span>Disclaimer: I am not a doctor and none of this legit.</span>
-            </div>
-          </div>
-        </>
-      )}
+        </div>
+      </>
+      {/* )} */}
     </>
   );
 }

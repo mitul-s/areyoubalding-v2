@@ -7,11 +7,11 @@ export default function Home() {
         <h1 className="leading-none text-center text-royal uppercase font-black">
           <span className="text-3xl">Are you</span>
           <br />
-          <span className="text-[calc(16px+14vw)] tracking-tighter md:tracking-[-0.425rem]">
+          <span className="text-c-xxxl tracking-tighter md:tracking-[-0.425rem]">
             balding?
           </span>
         </h1>
-        <p className="text-xl max-w-xl text-royal/75 font-semibold">
+        <p className="text-c-md max-w-xl text-royal/75 font-semibold text-balance">
           Take a short, ten question quiz to find out if a head without hair is
           in your future.
         </p>

@@ -19,7 +19,37 @@ body {
 }
 
 @layer utilities {
+  .text-c-sm {
+    font-size: clamp(0.65rem, 0.17vw + 0.61rem, 0.74rem);
+  }
+  .text-c-base {
+    font-size: clamp(0.81rem, 0.68vw + 0.64rem, 1.19rem);
+  }
+  .text-c-md {
+    font-size: clamp(1.02rem, 1.61vw + 0.61rem, 1.9rem);
+  }
+  .text-c-lg {
+    font-size: clamp(1.27rem, 3.22vw + 0.46rem, 3.04rem);
+  }
   .text-c-xl {
-    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    font-size: clamp(1.59rem, 5.96vw + 0.1rem, 4.86rem);
+  }
+  .text-c-xxl {
+    font-size: clamp(1.98rem, 10.54vw + -0.65rem, 7.78rem);
+  }
+
+  .text-c-xxxl {
+    font-size: clamp(4.48rem, 18.13vw + -2.05rem, 12.45rem);
+  }
+  .text-balance {
+    text-wrap: balance;
   }
 }
+
+/* --font-size-sm: clamp(0.65rem, 0.17vw + 0.61rem, 0.74rem);
+--font-size-base: clamp(0.81rem, 0.68vw + 0.64rem, 1.19rem);
+--font-size-md: clamp(1.02rem, 1.61vw + 0.61rem, 1.9rem);
+--font-size-lg: clamp(1.27rem, 3.22vw + 0.46rem, 3.04rem);
+--font-size-xl: clamp(1.59rem, 5.96vw + 0.1rem, 4.86rem);
+--font-size-xxl: clamp(1.98rem, 10.54vw + -0.65rem, 7.78rem);
+--font-size-xxxl:  */
