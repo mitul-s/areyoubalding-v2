@@ -97,86 +97,86 @@ export default function Result() {
 
   return (
     <>
-      {/* {loading ? (
+      {loading ? (
         <LoadingPage />
-      ) : ( */}
-      <>
-        <div className="relative flex flex-col items-center justify-center h-full scroll-smooth">
-          <h2 className="px-4 text-[calc(16px+9vw)] tracking-tighter md:tracking-[-0.425rem] text-royal font-black leading-none text-center">
-            {result}...
-          </h2>
+      ) : (
+        <>
+          <div className="relative flex flex-col items-center justify-center h-full scroll-smooth">
+            <h2 className="px-4 text-[calc(16px+9vw)] tracking-tighter md:tracking-[-0.425rem] text-royal font-black leading-none text-center">
+              {result}...
+            </h2>
 
-          <a
-            href="#what-does-this-mean"
-            className="absolute p-3 text-white transition -translate-x-1/2 rounded-full bottom-6 left-1/2 bg-ramen hover:bg-ramen/50"
+            <a
+              href="#what-does-this-mean"
+              className="absolute p-3 text-white transition -translate-x-1/2 rounded-full bottom-6 left-1/2 bg-ramen hover:bg-ramen/50"
+            >
+              <ArrowDown />
+            </a>
+          </div>
+          <div
+            id="what-does-this-mean"
+            className="scroll-smooth bg-royal text-white -mx-3 px-4 py-32 rounded-b-[10px] text-center space-y-6"
           >
-            <ArrowDown />
-          </a>
-        </div>
-        <div
-          id="what-does-this-mean"
-          className="scroll-smooth bg-royal text-white -mx-3 px-4 py-32 rounded-b-[10px] text-center space-y-6"
-        >
-          <h2 className="text-6xl font-bold tracking-tighter">
-            What does this mean for you?
-          </h2>
-          <p className="max-w-3xl mx-auto text-2xl">
-            Commodo minim occaecat eu voluptate eiusmod aliqua voluptate qui
-            eiusmod. Commodo minim occaecat eu voluptate eiusmod aliqua
-            voluptate qui eiusmod.
-          </p>
-        </div>
-        <div className="py-32 space-y-6 text-center">
-          <h2 className="text-6xl font-bold tracking-tighter text-royal">
-            What can you do to stop it?
-          </h2>
-          <p className="max-w-3xl mx-auto text-2xl text-royal">
-            Commodo minim occaecat eu voluptate eiusmod aliqua voluptate qui
-            eiusmod. Commodo minim occaecat eu voluptate eiusmod aliqua
-            voluptate qui eiusmod.
-          </p>
-        </div>
-        <div>
-          <div className="bg-cream !text-royal p-4">
-            <h3 className="text-6xl font-bold tracking-tighter ">
-              It&apos;s not the end... yet.
-            </h3>
-            <p>Some text</p>
-            <div className="grid grid-cols-2 grid-rows-3 gap-3">
-              <div className="bg-white rounded-md border p-4 row-span-2 shadow-sm flex flex-col gap-y-4">
-                <h3 className="text-royal text-6xl font-bold">Minoxidil</h3>
-                <p className="text-2xl">
-                  Laboris non in nisi tempor deserunt do enim. Nostrud quis
-                  exercitation in veniam do exercitation ea exercitation qui.
-                  Aliqua labore elit non cillum aliqua aliqua enim minim qui
-                  veniam non ea aute eu magna. Enim et consequat consectetur
-                  pariatur adipisicing labore aute culpa adipisicing nostrud
-                  magna ullamco ea aliqua.
-                </p>
-              </div>
-              <div className="bg-cream rounded-md border p-4 row-span-1">
-                <h3 className="text-black text-3xl font-bold">Minoxidil</h3>
-              </div>
-              <div className="bg-cream rounded-md border p-4 row-span-2">
-                <h3 className="text-black text-3xl font-bold">Minoxidil</h3>
-              </div>
-              <div className="bg-cream rounded-md border p-4 row-span-1">
-                <h3 className="text-black text-3xl font-bold">Minoxidil</h3>
+            <h2 className="text-6xl font-bold tracking-tighter">
+              What does this mean for you?
+            </h2>
+            <p className="max-w-3xl mx-auto text-2xl">
+              Commodo minim occaecat eu voluptate eiusmod aliqua voluptate qui
+              eiusmod. Commodo minim occaecat eu voluptate eiusmod aliqua
+              voluptate qui eiusmod.
+            </p>
+          </div>
+          <div className="py-32 space-y-6 text-center">
+            <h2 className="text-6xl font-bold tracking-tighter text-royal">
+              What can you do to stop it?
+            </h2>
+            <p className="max-w-3xl mx-auto text-2xl text-royal">
+              Commodo minim occaecat eu voluptate eiusmod aliqua voluptate qui
+              eiusmod. Commodo minim occaecat eu voluptate eiusmod aliqua
+              voluptate qui eiusmod.
+            </p>
+          </div>
+          <div>
+            <div className="bg-cream !text-royal p-4">
+              <h3 className="text-6xl font-bold tracking-tighter ">
+                It&apos;s not the end... yet.
+              </h3>
+              <p>Some text</p>
+              <div className="grid grid-cols-2 grid-rows-3 gap-3">
+                <div className="bg-white rounded-md border p-4 row-span-2 shadow-sm flex flex-col gap-y-4">
+                  <h3 className="text-royal text-6xl font-bold">Minoxidil</h3>
+                  <p className="text-2xl">
+                    Laboris non in nisi tempor deserunt do enim. Nostrud quis
+                    exercitation in veniam do exercitation ea exercitation qui.
+                    Aliqua labore elit non cillum aliqua aliqua enim minim qui
+                    veniam non ea aute eu magna. Enim et consequat consectetur
+                    pariatur adipisicing labore aute culpa adipisicing nostrud
+                    magna ullamco ea aliqua.
+                  </p>
+                </div>
+                <div className="bg-cream rounded-md border p-4 row-span-1">
+                  <h3 className="text-black text-3xl font-bold">Minoxidil</h3>
+                </div>
+                <div className="bg-cream rounded-md border p-4 row-span-2">
+                  <h3 className="text-black text-3xl font-bold">Minoxidil</h3>
+                </div>
+                <div className="bg-cream rounded-md border p-4 row-span-1">
+                  <h3 className="text-black text-3xl font-bold">Minoxidil</h3>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="flex items-center justify-center py-4 -mx-3 bg-black">
-          <div className="flex items-center justify-between w-full px-4 text-xs text-white">
-            <p>
-              Built by{" "}
-              <Link href="https://twitter.com/typicalmitul">Mitul Shah</Link>
-            </p>
-            <span>Disclaimer: I am not a doctor and none of this legit.</span>
+          <div className="flex items-center justify-center py-4 -mx-3 bg-black">
+            <div className="flex items-center justify-between w-full px-4 text-xs text-white">
+              <p>
+                Built by{" "}
+                <Link href="https://twitter.com/typicalmitul">Mitul Shah</Link>
+              </p>
+              <span>Disclaimer: I am not a doctor and none of this legit.</span>
+            </div>
           </div>
-        </div>
-      </>
-      {/* )} */}
+        </>
+      )}
     </>
   );
 }
